@@ -11,7 +11,7 @@ public class ARK_manager {
 			    commands.add("ping");
 			    commands.add("-n");
 			    commands.add("5");
-			    commands.add("85.191.250.119");
+			    commands.add("IP");
 			    ping.doCommand(commands);
 			  }
 
