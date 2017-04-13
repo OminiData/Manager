@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+
+public class ARK_manager {
+
+	  public static void main(String args[]) 
+			  throws IOException
+			  {
+		  ARK_manager ping = new ARK_manager();
+			    List<String> commands = new ArrayList<String>();
+			    commands.add("ping");
+			    commands.add("-n");
+			    commands.add("5");
+			    commands.add("85.191.250.119");
+			    ping.doCommand(commands);
+			  }
+
+			  public void doCommand(List<String> command) 
+			  throws IOException
+			  {
+			    String s = null;
+
+			    ProcessBuilder pb = new ProcessBuilder(command);
+			    Process process = pb.start();
+
+			    BufferedReader stdInput = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			    BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
+			    System.out.println("Pingin server\n");
+			    while ((s = stdInput.readLine()) != null)
+			    {
+			      System.out.println(s);
+			    }
+
+			    while ((s = stdError.readLine()) != null)
+			    {
+			      System.out.println(s);
+			    }
+			 
+			  }
+
+			}
